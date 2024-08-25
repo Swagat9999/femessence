@@ -21,11 +21,13 @@ function CourseCreate(){
 
     
     function check(){
+      const imageLinksArray = img.split(',').map(link => link.trim());
+
       axios.post('http://localhost:3001/admin/courses', 
           {title,
           description: des,
           price,
-          imgageLink:img,
+          imgageLink:imageLinksArray,
           published: pub},{
         headers: {"Authorization":`Bearer ${localStorage.getItem('token')}`}
         })
@@ -49,7 +51,6 @@ return(<>
   </CardContent>
   </Card>
   </div>
-  <CourseList></CourseList>
   </>
 )
 }

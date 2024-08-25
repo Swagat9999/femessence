@@ -86,3 +86,27 @@ export const courseDes = selector({
       return "";
     },
   });
+
+
+  export const productd = selector({
+    key: 'productdState',
+    get: ({get}) => {
+      const state = get(courseState);
+      if (state.course) {
+          return state.course.productd;
+      }
+      return "";
+    },
+  });
+
+
+  export const rating = selector({
+    key: 'ratingState',
+    get: ({get}) => {
+      const state = get(courseState);
+      if (state.course) {
+          return state.course.rating;
+      }
+      return "";
+    },
+  });

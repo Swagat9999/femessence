@@ -15,6 +15,7 @@ import {
   useSetRecoilState,
 } from 'recoil';
 import { userState } from './store/atoms/user';
+import CourseList from './CourseList';
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Landing />} />
                 <Route path="/:courseId" element={<Course />} />
-                <Route path="/about" element={<CourseCreate />} />
+                <Route path="/about" element={<CourseList />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register/>} />
             </Routes>

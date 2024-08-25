@@ -39,7 +39,7 @@ function CourseList() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get('http://localhost:3001/admin/products', {
+      const res = await axios.get('http://localhost:3001/admin/courses', {
         headers: { "Authorization": `Bearer ${localStorage.getItem('token')}` }
       });
       setCourses(res.data);
@@ -72,10 +72,10 @@ export function Todos(props) {
 function TodosDiv({ courses }) {
   return (
     <div style={{ display: "flex", padding: 50, justifyContent: "space-around", flexWrap: "wrap" }}>
-      <Grid container spacing={2}>
-        {courses.map((course) => {
+<Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+{courses.map((course) => {
           return (
-            <Grid item xs={12} key={course._id}>
+            <Grid item xs={3} sm={4} md={4} key={course._id}>
               <Item>
                 <Link to={`/${course._id}`} style={{ textDecoration: 'none' }}>
                   <Card >

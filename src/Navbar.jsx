@@ -33,7 +33,7 @@ function Navbar() {
         <Button style={{ color: 'black', marginRight: 40 }}>
 
           <Typography variant='h5' style={{ fontSize: '1.2vw', fontWeight: 400, fontFamily: "helvetica", color: 'black', textDecoration: 'none' }}>
-          <span style={{ textTransform: 'capitalize' }}>Products</span>
+          <Link to="/about"><span style={{ textTransform: 'capitalize' }}>Products</span></Link>
 
           </Typography>
           </Button>
@@ -53,9 +53,9 @@ function Navbar() {
           {!user.isLoading ? (
             <>
               <Link to="/about">
-                <Button style={{ color: 'black', marginRight: 10 }}>Courses</Button>
+                <Button style={{ color: 'black', marginRight: 10 }}>Orders</Button>
               </Link>
-              <Button variant="contained" style={{ fontSize: '3vw',color: 'black', backgroundColor: 'white' }} onClick={handleLogout}>Logout</Button>
+              <Button variant="contained" style={{ color: 'black', backgroundColor: 'white' }} onClick={handleLogout}>Logout</Button>
             </>
           ) : (
             <>
