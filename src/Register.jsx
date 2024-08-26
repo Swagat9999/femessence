@@ -29,13 +29,6 @@ function Register(){
         <>
         <div style={{height:'100vh'}}>
           <div style={{display:"flex", justifyContent:"space-around", paddingTop:100}}>
-<<<<<<< HEAD
-            <div> 
-              <Card sx={{ minWidth: 600 , padding:2}}>
-                <CardContent>
-                <TextField id="outlined-basic" label="first" variant="outlined" style={{width:'100%', marginBottom: '20px'}}  onChange={(e)=>{setTitle(e.target.value)}}/>
-<br />
-=======
             
             <div> 
               <Card sx={{ minWidth: 600 , padding:2}}>
@@ -44,7 +37,6 @@ function Register(){
                   <br/>
                 <TextField id="outlined-basic" label="lastName" variant="outlined" style={{width:'100%', marginBottom: '20px'}}  onChange={(e)=>{setlastname(e.target.value)}}/>
                   <br/>
->>>>>>> ac7809804e350c798213fb0794f50e22fa5c9f57
                   <TextField id="outlined-basic" label="username" variant="outlined" style={{width:'100%', marginBottom: '20px'}}  onChange={(e)=>{setTitle(e.target.value)}}/>
                   <br/>
 
