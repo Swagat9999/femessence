@@ -59,4 +59,14 @@ router.get('/courses', async (req, res) => {
   res.json(courses);
 });
 
+
+router.get('/purchasedCourses', authenticateJwt, async (req, res) => {
+  const admin = await User.findOne({ username: req.user.username }).populate('purchasedCourses');
+  if (admin) {
+    res.json({ purchasedCourses: admin.purchasedCourses || [] });
+  } else {
+    res.status(404).json({ message: 'User not found' });
+  }
+});
+
 module.exports = router;

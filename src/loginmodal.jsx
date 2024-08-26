@@ -114,7 +114,7 @@ const LoginSignupModal = () => {
           <Button
             variant="contained"
             onClick={() => {
-              navigate('/login');
+              navigate('/register');
               handleCclose();
             }}
           >

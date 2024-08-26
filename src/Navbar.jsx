@@ -20,48 +20,54 @@ function Navbar() {
     <div style={{ backgroundColor: 'white' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '50px 70px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-        <Link to='/'>
-        <Button startIcon={<img src="src/assets/log.png" alt="icon" style={{ width: '4vw', height: '4vw' }} />} style={{ color: 'black', marginRight: 40 }}>
-
-          <Typography variant='h5' style={{ fontSize: '1.5vw', fontWeight: 400, fontFamily: "helvetica", color: 'black', textDecoration: 'none' }}>
-          <span style={{ textTransform: 'capitalize' }}>Fem</span><span style={{ textTransform: 'capitalize' }}>Essence</span>
-
-          </Typography>
+          
+          {/* Logo with Link */}
+          <Button 
+            component={Link} 
+            to={`/`} 
+            startIcon={<img src="src/assets/log.png" alt="icon" style={{ width: '4vw', height: '4vw' }} />} 
+            style={{ color: 'black', marginRight: 40 }}>
+            <Typography variant='h5' style={{ fontSize: '1.5vw', fontWeight: 400, fontFamily: "helvetica", color: 'black', textDecoration: 'none' }}>
+              <span style={{ textTransform: 'capitalize' }}>Fem</span>
+              <span style={{ textTransform: 'capitalize' }}>Essence</span>
+            </Typography>
           </Button>
-        </Link>
-        <Link to='/products'>
-        <Button style={{ color: 'black', marginRight: 40 }}>
 
-          <Typography variant='h5' style={{ fontSize: '1.2vw', fontWeight: 400, fontFamily: "helvetica", color: 'black', textDecoration: 'none' }}>
-          <Link to="/about"><span style={{ textTransform: 'capitalize' }}>Products</span></Link>
-
-          </Typography>
+          {/* Products Link */}
+          <Button 
+            component={Link} 
+            to={`/about`} 
+            style={{ color: 'black', marginRight: 40 }}>
+            <Typography variant='h5' style={{ fontSize: '1.2vw', fontWeight: 400, fontFamily: "helvetica", color: 'black' }}>
+              Products
+            </Typography>
           </Button>
-        </Link>
-        <Link to='/aboutus'>
-        <Button style={{ color: 'black', marginRight: 10 }}>
 
-          <Typography variant='h5' style={{ fontSize: '1.2vw', fontWeight: 400, fontFamily: "helvetica", color: 'black', textDecoration: 'none' }}>
-          <span style={{ textTransform: 'capitalize' }}>About Us</span>
-
-          </Typography>
+          {/* About Us Link */}
+          <Button 
+            component={Link} 
+            to={`/aboutus`} 
+            style={{ color: 'black', marginRight: 10 }}>
+            <Typography variant='h5' style={{ fontSize: '1.2vw', fontWeight: 400, fontFamily: "helvetica", color: 'black' }}>
+              About Us
+            </Typography>
           </Button>
-        </Link>
         </div>
         
         <div>
-          {!user.isLoading ? (
+          {!user || user.isLoading === undefined ? (
+            <LoginSignupModal />
+          ):(
             <>
-              <Link to="/about">
-                <Button style={{ color: 'black', marginRight: 10 }}>Orders</Button>
-              </Link>
-              <Button variant="contained" style={{ color: 'black', backgroundColor: 'white' }} onClick={handleLogout}>Logout</Button>
+              <Button component={Link} to={`/purchased`} style={{ color: 'black', marginRight: 10 }}>
+                Orders
+              </Button>
+
+              <Button variant="contained" style={{ color: 'black', backgroundColor: 'white' }} onClick={handleLogout}>
+                Logout
+              </Button>
             </>
-          ) : (
-            <>
-              <LoginSignupModal/>
-            </>
-          )}
+          ) }
         </div>
       </div>
     </div>

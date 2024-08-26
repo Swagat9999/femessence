@@ -22,10 +22,11 @@ function Register(){
         <>
         <div style={{height:'100vh'}}>
           <div style={{display:"flex", justifyContent:"space-around", paddingTop:100}}>
-            <Lander/>
             <div> 
               <Card sx={{ minWidth: 600 , padding:2}}>
                 <CardContent>
+                <TextField id="outlined-basic" label="first" variant="outlined" style={{width:'100%', marginBottom: '20px'}}  onChange={(e)=>{setTitle(e.target.value)}}/>
+<br />
                   <TextField id="outlined-basic" label="username" variant="outlined" style={{width:'100%', marginBottom: '20px'}}  onChange={(e)=>{setTitle(e.target.value)}}/>
                   <br/>
                   <TextField id="outlined-basic" label="password" variant="outlined" style={{width:'100%'}} onChange={(e)=>{setDes(e.target.value)}}/>

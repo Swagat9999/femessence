@@ -14,6 +14,7 @@ import { courseState } from "./store/atoms/course";
 import Slider from "react-slick";
 import Box from '@mui/material/Box';
 import { Divider, Grid } from '@mui/material'; 
+import { Purchase } from './Purchased';
 
 function Course() {
   const settings = {
@@ -34,7 +35,6 @@ function Course() {
   const img = useRecoilValue(courseImage);
   const productdd = useRecoilValue(productd);
   const rate = useRecoilValue(rating);
-
 
 
 
@@ -72,7 +72,7 @@ function Course() {
               <Typography variant='h4' style={{ fontWeight: 500, fontFamily: "helvetica" }}>{title + " "}</Typography> <br />
               <Typography style={{ color: "grey" }} variant='h6'>{des}</Typography> 
               <Box  height={50}
-      width={100}
+      width={150}
       my={4}
       display="flex"
       alignItems="center"
@@ -89,6 +89,9 @@ function Course() {
               <Typography style={{ color: "grey" }} variant='h6'>{productdd}
 
 </Typography>
+
+  <Button size="large" sx={{ width:200, mt: 10, backgroundColor: '#633EBB', color: 'white' }}   onClick={Purchase}  > Buy Now </Button>
+
             </div>
           </Grid>
           <Grid item xs={12} sm={6}>
