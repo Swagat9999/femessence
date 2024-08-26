@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const { User, Admin, Course, Product } = require('../db');
+const zod=require("zod");
+const {Admin, Course, Product } = require('../db');
 const jwt = require('jsonwebtoken');
 const { secretKey } = require('../middleware/auth');
 const cors = require('cors');
@@ -10,18 +11,51 @@ const { authenticateJwt } = require('../middleware/auth');
 const router = express.Router();
 
 // Admin routes
-router.post('/signup', async (req, res) => {
-  const admin = req.body;
-  const adminExists = await Admin.findOne({ username: admin.username });
-  if (adminExists) {
-    res.status(403).json({ message: 'Admin already exists' });
-  } else {
-    const newAdmin = new Admin(admin);
-    await newAdmin.save();
-    const token = jwt.sign(admin, secretKey, { expiresIn: '1h' });
-    res.json({ message: 'Admin created successfully', token });
+const signupBody = zod.object({
+  username: zod.string().email(),
+firstName: zod.string(),
+lastName: zod.string(),
+password: zod.string()
+})
+
+router.post("/signup", async (req, res) => {
+  const { success } = signupBody.safeParse(req.body)
+  if (!success) {
+      return res.status(411).json({
+          message: "Email already taken / Incorrect inputs"
+      })
   }
-});
+
+  const existingUser = await Admin.findOne({
+      username: req.body.username
+  })
+
+  if (existingUser) {
+      return res.status(411).json({
+          message: "Email already taken"
+      })
+  }
+
+  const user = await Admin.create({
+      username: req.body.username,
+      password: req.body.password,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+  })
+  const userId = user._id;
+
+  
+
+  const token = jwt.sign({
+      userId
+  }, secretKey);
+
+  res.json({
+      message: "User created successfully",
+      token: token
+  })
+})
+
 
 router.get('/me', authenticateJwt, (req, res) => {
   res.json(req.user);
