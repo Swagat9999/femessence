@@ -26,7 +26,8 @@ const adminSchema = new mongoose.Schema({
       required: true,
       trim: true,
       maxLength: 50
-  }
+  },
+  purchasedCourses: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Course' }]
 }, { collection: 'admins' });
 
 const courseSchema = new mongoose.Schema({

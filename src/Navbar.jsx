@@ -25,7 +25,8 @@ function Navbar() {
           <Button 
             component={Link} 
             to={`/`} 
-            startIcon={<img src="src/assets/log.png" alt="icon" style={{ width: '4vw', height: '4vw' }} />} 
+            startIcon={<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKzdXzRdcyELokCtEqIpxpx_2U9_-ZBKqJV8CWL_8Xc8TM4XwYKYRnm46Gpc9P6QjebI8RAKEEEmCQCeVU6c7kDcw0M8neA1ggHdRM0OsG9TYjGIKuUasp9ViUPTcgA9FIAj_uKpV1LomSOXcpbIo_2keOHkqJnoFEjMd_yZ9CgTlERq9W-4ohS8L2nhQ/s150/log.png" 
+              alt="icon" style={{ width: '4vw', height: '4vw' }} />} 
             style={{ color: 'black', marginRight: 40 }}>
             <Typography variant='h5' style={{ fontSize: '1.5vw', fontWeight: 400, fontFamily: "helvetica", color: 'black', textDecoration: 'none' }}>
               <span style={{ textTransform: 'capitalize' }}>Fem</span>
@@ -56,8 +57,6 @@ function Navbar() {
         
         <div>
           {!user || user.isLoading === undefined ? (
-            <LoginSignupModal />
-          ):(
             <>
               <Button component={Link} to={`/purchased`} style={{ color: 'black', marginRight: 10 }}>
                 Orders
@@ -67,7 +66,9 @@ function Navbar() {
                 Logout
               </Button>
             </>
-          ) }
+          ): (
+            <LoginSignupModal />
+          )}
         </div>
       </div>
     </div>

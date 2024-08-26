@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
 import { Divider, Grid } from '@mui/material'; 
-import Footer from './footer';
+import Footer from './Footer';
 
 function Landing() {
     return (
@@ -16,7 +16,7 @@ export function Lander() {
         <>
             <div style={{ width: '100vw' }}>
                 <img
-                    src='src/assets/femback.png'
+                    src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSz2o5QefAdOrv1lqUpKB38-3XZmG64n4A_2E6zOVYEUZKT7tmvjMv4VM1TyFdVhdAO1pJI_0qsl_O9FzJ_xUNNU5Isride9bMBE31-Dqaq93EmkBuHAkSGBJfhcwyCmUeGEuRuyJV3XRPsc5B4AcgCVlWY7ppPKA6VVSVPqMsrxz2GG0547fRqwmaks0/s1440/femback.png'
                     alt='Background'
                     style={{
                         padding: '0px',
@@ -55,7 +55,8 @@ export function Lander() {
 
                     </Grid>
                     <Grid item xs={12} sm={6} style={{ maxWidth: 700, margin: '0 auto', textAlign: 'center' }}>
-    <img src="src/assets/pieFem.png" alt="Pie chart" style={{ width: '100%', height: 'auto' }} />
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKVnloOeAmvsWZKDxr-Aw7az3IV5RuOMNPd54-nTdBUzpLTKvcrS8ppq7s3de-dUFMrSrufihhsHzkHM1WsiIRPLsEZYZsWKIfrb2hLL_eHEzUtfRE5KwyjqHggMaP_gU5fh2Hr_wcEtTwSbZLbTLPLJAZKtMiV9_xvvJIGdbDwujRRh_KYHvhBGj3RIE/s590/pieFem.png" 
+    alt="Pie chart" style={{ width: '100%', height: 'auto' }} />
     <Typography variant='h6' style={{ fontWeight: 400, fontFamily: "helvetica", textAlign: 'center', marginTop: '10px' }}>
         Age group distribution of surveyed women
     </Typography>
@@ -72,7 +73,7 @@ export function Lander() {
                 </Typography> <br />
                 <br /><br />
                 <img
-                    src='src/assets/Fem4.png'
+                    src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEisJ5TOofsxMkJdkqN2-tCj-K31_ql2EQ1e0oNqlpqqlaYhM3RDt2WxJqzMovMeASRB3VI5ghwk__4S1mfWGo0MHkGlSDOEY1onsUSo8EmLGfuBvMnaUfxLRUWh_dHTT2qQCCuP8Dqa9WAEz9iPMfLkoT-2Ik4TH4ZHZK9T-WIRSvsjN_lG7lD99Xf3l9I/s1219/Fem4.png'
                     alt='Survey Results'
                     style={{
                         padding: '0px',
@@ -104,7 +105,7 @@ export function Lander() {
                     </Grid>
                     <Grid item xs={12} sm={4}>
 
-                        <img src='src/assets/doc.jpg.webp' alt='Johanna Gillbro' style={{ width: '100%', height: 'auto', borderRadius: '10px' }} />
+                        <img src='https://www.skinome.com/cdn/shop/files/1x1_J_portratt.jpg?v=1718283247&width=2500' alt='Johanna Gillbro' style={{ width: '100%', height: 'auto', borderRadius: '10px' }} />
                     </Grid>
                 </Grid>
             </div>

@@ -6,7 +6,8 @@ function Footer(){
         <div class="sm:flex sm:items-center sm:justify-between">
             <a href="#" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                 <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center">
-                    <img src="src/assets/log.png" class="h-12" alt="Femessence Logo" />
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKzdXzRdcyELokCtEqIpxpx_2U9_-ZBKqJV8CWL_8Xc8TM4XwYKYRnm46Gpc9P6QjebI8RAKEEEmCQCeVU6c7kDcw0M8neA1ggHdRM0OsG9TYjGIKuUasp9ViUPTcgA9FIAj_uKpV1LomSOXcpbIo_2keOHkqJnoFEjMd_yZ9CgTlERq9W-4ohS8L2nhQ/s150/log.png" 
+                    class="h-12" alt="Femessence Logo" />
                 </div>
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">FemEssence</span>
             </a>

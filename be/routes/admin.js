@@ -57,6 +57,9 @@ router.post("/signup", async (req, res) => {
 })
 
 
+
+
+
 router.get('/me', authenticateJwt, (req, res) => {
   res.json(req.user);
 });
@@ -79,10 +82,17 @@ router.post('/courses', authenticateJwt, async (req, res) => {
   res.json({ message: 'Course created successfully', courseId: newCourse._id });
 });
 
-router.put('/courses/:courseId', authenticateJwt, async (req, res) => {
-  const course = await Product.findByIdAndUpdate(req.params.courseId, req.body, { new: true });
+router.post('/courses/:courseId', authenticateJwt, async (req, res) => {
+  const course = await Course.findById(req.params.courseId);
   if (course) {
-    res.json({ message: 'Course updated successfully' });
+    const user = await Admin.findOne({ username: req.user.username });
+    if (user) {
+      user.purchasedCourses.push(course);
+      await user.save();
+      res.json({ message: 'Course purchased successfully' });
+    } else {
+      res.status(403).json({ message: 'User not found' });
+    }
   } else {
     res.status(404).json({ message: 'Course not found' });
   }
@@ -95,7 +105,7 @@ router.get('/courses', async (req, res) => {
 
 
 router.get('/purchasedCourses', authenticateJwt, async (req, res) => {
-  const admin = await User.findOne({ username: req.user.username }).populate('purchasedCourses');
+  const admin = await Admin.findOne({ username: req.user.username }).populate('purchasedCourses');
   if (admin) {
     res.json({ purchasedCourses: admin.purchasedCourses || [] });
   } else {
